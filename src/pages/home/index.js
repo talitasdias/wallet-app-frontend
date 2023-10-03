@@ -1,3 +1,47 @@
+const renderFinancesList = (data) => {
+    const table = document.getElementById('finances-table')
+    /* <tr>
+            <td>Título1</td>
+            <td class="center">Título2</td>
+            <td class="center">Título3</td>
+            <td class="center">Título2</td>
+            <td class="right">Título3</td>
+        </tr> */
+    data.map(item => {
+        const tableRow = document.createElement('tr');
+
+        //title
+        const titleTd = document.createElement('td');
+        const titleText = document.createTextNode(item.title);
+        titleTd.appendChild(titleText);
+        tableRow.appendChild(titleTd);
+
+        //category
+        const categoryTd = document.createElement('td');
+        const categoryText = document.createTextNode(item.name);
+        categoryTd.className = 'center'
+        categoryTd.appendChild(categoryText);
+        tableRow.appendChild(categoryTd);
+
+        //date
+        const dateTd = document.createElement('td');
+        const dateText = document.createTextNode(item.date);
+        dateTd.className = 'center'
+        dateTd.appendChild(dateText);
+        tableRow.appendChild(dateTd);
+
+        //value
+        const valueTd = document.createElement('td');
+        const valueText = document.createTextNode(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.value));
+        valueTd.className = 'center'
+        valueTd.appendChild(valueText);
+        tableRow.appendChild(valueTd);
+        
+
+        table.appendChild(tableRow)
+    })
+}
+
 const renderFinancesElements = (data) => {
     const totalItems = data.length;
     const revenues = data.filter((item) => Number(item.value) > 0).reduce((acc, item) => acc + Number(item.value), 0);
@@ -46,7 +90,8 @@ const onLoadFinancesData = async () => {
             method: "GET", headers: { email: email }
         });
         const data = await result.json();
-        renderFinancesElements(data)
+        renderFinancesElements(data);
+        renderFinancesList(data);
         return data;
     } catch(error) {
         return { error }
