@@ -10,7 +10,8 @@
     align-items: flex-start;
     justify-content: flex-start;
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     background-color: #f4f4f9;
 }
 
@@ -68,4 +69,41 @@
     height: 140px;
     border-radius: 24px;
     background-color: #ffffff;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px 122px;
+}
+
+.table-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 592px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.table-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 24px;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    text-align: left;
 }
