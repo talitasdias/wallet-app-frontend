@@ -104,6 +104,27 @@ table {
     width: 100%;
 }
 
-tr {
+th {
     text-align: left;
+    color: #7c7c7c;
+}
+
+th.right {
+    text-align: right;
+}
+
+th.center {
+    text-align: center;
+}
+
+td {
+    color: #7c7c7c;
+}
+
+td.right {
+    text-align: right;
+}
+
+td.center {
+    text-align: center;
 }
