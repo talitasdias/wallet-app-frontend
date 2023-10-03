@@ -9,6 +9,7 @@ const renderFinancesList = (data) => {
         </tr> */
     data.map(item => {
         const tableRow = document.createElement('tr');
+        tableRow.className = 'mt smaller'
 
         //title
         const titleTd = document.createElement('td');
@@ -19,13 +20,12 @@ const renderFinancesList = (data) => {
         //category
         const categoryTd = document.createElement('td');
         const categoryText = document.createTextNode(item.name);
-        categoryTd.className = 'center'
         categoryTd.appendChild(categoryText);
         tableRow.appendChild(categoryTd);
 
         //date
         const dateTd = document.createElement('td');
-        const dateText = document.createTextNode(item.date);
+        const dateText = document.createTextNode(new Date(item.date).toLocaleDateString());
         dateTd.className = 'center'
         dateTd.appendChild(dateText);
         tableRow.appendChild(dateTd);
@@ -36,8 +36,15 @@ const renderFinancesList = (data) => {
         valueTd.className = 'center'
         valueTd.appendChild(valueText);
         tableRow.appendChild(valueTd);
-        
 
+        //delete
+        const deleteTd = document.createElement('td');
+        const deleteText = document.createTextNode("Deletar");
+        deleteTd.className = 'right'
+        deleteTd.appendChild(deleteText);
+        tableRow.appendChild(deleteTd);
+        
+        //table add tableRow
         table.appendChild(tableRow)
     })
 }
