@@ -128,3 +128,31 @@ td.right {
 td.center {
     text-align: center;
 }
+
+.modal-background {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(1, 4, 0, 0.2);
+}
+
+.modal-content {
+    width: 480px;
+    height: 100%;
+    background-color: #f4f4f9;
+    padding: 24px;
+}
+
+.modal-content-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

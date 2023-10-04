@@ -34,7 +34,7 @@
             <div class="table-content-container">
                 <div class="table-content-header">
                     <h2>Últimos lançamentos</h2>
-                    <button class="small">Adicionar</button>
+                    <button class="small" onclick="onOpenModal()">Adicionar</button>
                 </div>
                 <table id="finances-table">
                     <tr>
@@ -46,6 +46,26 @@
                     </tr>
                 </table>
             </div>
+        </div>
+    </div>
+    <div id="modal" class="modal-background">
+        <div class="modal-content">
+            <div class="modal-content-header">
+                <h3>Adicionar lançamento</h3>
+                <button class="small" onclick="onCloseModal()">Fechar</button>
+            </div>
+            <form id="form-register" class="mt">
+                <label for="input-title">Título</label>
+                <input class="mt smaller" placeholder="Ex: Compra supermercado" type="text" name="input-title" id="input-title" required>
+                <label class="mt" for="input-value">Valor</label>
+                <input class="mt smaller" placeholder="R$ 0,00 (Use valores negativos para uma despesa)" type="number" name="input-value" id="input-value" required>
+                <label class="mt" for="input-date">Data</label>
+                <input class="mt smaller" value="2023-10-04" type="date" name="input-date" id="input-date" required>
+                <label class="mt" for="input-category">Categoria</label>
+                <select class="mt smaller" name="input-category" id="input-category" required>
+                </select>
+                <button id="botao" class="full-width mt large" type="submit">Adicionar</button>
+            </form>
         </div>
     </div>
     <script src="index.js"></script>
