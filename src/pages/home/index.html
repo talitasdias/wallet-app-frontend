@@ -54,11 +54,11 @@
                 <h3>Adicionar lançamento</h3>
                 <button class="small" onclick="onCloseModal()">Fechar</button>
             </div>
-            <form id="form-register" class="mt">
+            <form id="form-add-finance-release" class="mt">
                 <label for="input-title">Título</label>
                 <input class="mt smaller" placeholder="Ex: Compra supermercado" type="text" name="input-title" id="input-title" required>
                 <label class="mt" for="input-value">Valor</label>
-                <input class="mt smaller" placeholder="R$ 0,00 (Use valores negativos para uma despesa)" type="number" name="input-value" id="input-value" required>
+                <input class="mt smaller" placeholder="R$ 0,00 (Use valores negativos para uma despesa)" type="number" step="any" name="input-value" id="input-value" required>
                 <label class="mt" for="input-date">Data</label>
                 <input class="mt smaller" value="2023-10-04" type="date" name="input-date" id="input-date" required>
                 <label class="mt" for="input-category">Categoria</label>

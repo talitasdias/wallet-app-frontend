@@ -1,12 +1,5 @@
 const renderFinancesList = (data) => {
-    const table = document.getElementById('finances-table')
-    /* <tr>
-            <td>Título1</td>
-            <td class="center">Título2</td>
-            <td class="center">Título3</td>
-            <td class="center">Título2</td>
-            <td class="right">Título3</td>
-        </tr> */
+    const table = document.getElementById('finances-table');
     data.map(item => {
         const tableRow = document.createElement('tr');
         tableRow.className = 'mt smaller'
@@ -91,7 +84,7 @@ const renderFinancesElements = (data) => {
 
 const onLoadFinancesData = async () => {
     try {
-        const date = '2022-12-15'
+        const date = '2023-10-05'
         const email = localStorage.getItem("@WalletApp:userEmail")
         const result = await fetch(`https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`, {
             method: "GET", headers: { email: email }
@@ -160,8 +153,57 @@ const onCloseModal = () => {
     modal.style.display = 'none'
 }
 
+const onCallAddFinance = async(data) => {
+
+    try {
+        const email = localStorage.getItem("@WalletApp:userEmail")
+    
+        const response = await fetch('https://mp-wallet-app-api.herokuapp.com/finances', {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json",
+              email: email,
+            },
+            body: JSON.stringify(data),
+          });
+
+          const user = await response.json();
+          return user;
+    } catch(error){
+        return { error };
+    }
+}
+
+const onCreateFinanceRelease = async (target) => {
+    try{
+        const title = target[0].value;
+        const value = Number(target[1].value);
+        const date = target[2].value;
+        const category = Number(target[3].value);
+        const result = await onCallAddFinance({title, value, date, category_id:category,});
+
+        if(result.error){
+            alert("Erro ao adicionar novo dado financeiro.")
+            return;
+        }
+        onCloseModal();
+        //onLoadFinancesData();
+    }catch(error){
+        alert("Erro ao adicionar novo dado financeirooooooo.")
+    }
+};
+
 window.onload = () => {
     onLoadUserInfor();
     onLoadFinancesData();
     onLoadCategories();
+
+    const form = document.getElementById('form-add-finance-release');
+    form.onsubmit = (event) => {
+        event.preventDefault();
+        onCreateFinanceRelease(event.target);
+    };
 }
