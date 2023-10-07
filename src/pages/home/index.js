@@ -1,6 +1,33 @@
 const renderFinancesList = (data) => {
     const table = document.getElementById('finances-table');
     table.innerHTML = "";
+    const tableHeader = document.createElement('tr');
+
+    const thTitle = document.createElement('th');
+    thTitle.innerText = 'Título';
+    tableHeader.appendChild(thTitle);
+
+    const thCategory = document.createElement('th');
+    thCategory.innerText = 'Categoria';
+    tableHeader.appendChild(thCategory);
+
+    const thDate = document.createElement('th');
+    thDate.innerText = 'Data';
+    thDate.className = 'center'
+    tableHeader.appendChild(thDate);
+
+    const thValue = document.createElement('th');
+    thValue.innerText = 'Valor';
+    thValue.className = 'center'
+    tableHeader.appendChild(thValue);
+
+    const thAction = document.createElement('th');
+    thAction.innerText = 'Ação';
+    thAction.className = 'right'
+    tableHeader.appendChild(thAction);
+
+    table.appendChild(tableHeader);
+
     data.map(item => {
         const tableRow = document.createElement('tr');
         tableRow.className = 'mt smaller'
