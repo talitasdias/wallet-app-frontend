@@ -245,6 +245,8 @@ const onCreateFinanceRelease = async (target) => {
             return;
         }
         onCloseModal();
+        const form = document.getElementById('form-add-finance-release');
+        form.reset();
         onLoadFinancesData();
     }catch(error){
         alert("Erro ao adicionar novo dado financeirooooooo.")
