@@ -1,5 +1,7 @@
 # Wallet App
 
+<img src="src/img/preview-site.gif">
+
 ## Introdução
 
 Este é um painel de gerenciamento financeiro feito com JavaScript, HTML e CSS. O objetivo principal é permitir que o usuário adicione e exclua lançamentos (que são salvos na API) e informá-lo sobre o saldo do mês.
