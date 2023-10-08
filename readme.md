@@ -16,13 +16,13 @@ https://talitasdias.github.io/wallet-app-frontend/
 1. Clonar o repositório:
 ```
 git clone https://github.com/talitasdias/wallet-app-frontend.git
-
 ```
 
 2. Navegue até a pasta do aplicativo:
 ```
 cd wallet-app-frontend
 ```
+
 3. Abra o arquivo `index.html`.
 
 4. Use o usuário `teste@teste.com` ou crie um novo.
